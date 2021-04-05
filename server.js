@@ -38,6 +38,10 @@ app.get("/add-user", (req, res) => {
     res.render("add_user");
 });
 
+app.get("/edit-user", (req, res) => {
+    res.render("update_user");
+});
+
 // Run Server
 app.listen(port, () => {
     console.log(`Running on Port ${port}`);

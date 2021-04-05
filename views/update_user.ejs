@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New User</title>
+    <title>Edit User</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
@@ -17,12 +17,13 @@
         <main id="site-main">
             <div class="container">
                 <div class="form-title text-center">
-                    <h2 class="text-dark">New User</h2>
+                    <h2 class="text-dark">Update User</h2>
 
-                    <span class="text-light">Use the below form to create new account</span>
+                    <span class="text-light">Use the below form to update existing user</span>
                 </div>
-                <form action="/" method="post" id="add_user">
-                    <div class="new_user">
+                <form action="/" method="post" id="update_user">
+                    <input type="text" name="id" class="hidden">
+                    <div class="edit_user">
                         <div class="form-group">
                             <label for="name" class="text-light">
                                 Name: <input type="text" id="name" name="name" value="" placeholder="john doe">
@@ -64,7 +65,7 @@
                     </label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn text-dark add">Add New User</button>
+                <button type="submit" class="btn text-dark update">Update User</button>
             </div>
             </div>
             </form>
