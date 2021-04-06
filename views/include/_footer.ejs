@@ -1,0 +1,47 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    if (window.jQuery) {
+        $('#update_user').submit((e) => {
+            e.preventDefault()
+
+            let id = document.getElementById('id').value
+            let name = document.getElementById('name').value
+            let email = document.getElementById('email').value
+            let gender = $('input[name=gender]').val()
+            let status = $('input[name=status]').val()
+
+            const data = {
+                _id: id,
+                name,
+                email,
+                gender,
+                status
+            }
+
+            let request = {
+                url: `http://localhost:8001/api/update/${id}`,
+                method: 'PUT',
+                data: data
+            }
+
+            $.ajax(request).done((res) => window.location.href = "http://localhost:8001/")
+        })
+
+        if (window.location.pathname == "/") {
+            $(".table tbody td a.delete").click((e) => {
+                let id = $(e.target).attr('data-id')
+
+                let request = {
+                    url: `http://localhost:8001/api/delete/${id}`,
+                    method: 'DELETE',
+                }
+
+                if (confirm('Do you want to delete this user?')) {
+                    $.ajax(request).done(res => location.reload())
+                }
+            })
+        }
+    }
+</script>

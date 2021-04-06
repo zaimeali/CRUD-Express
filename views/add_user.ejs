@@ -1,75 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('./include/_header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New User</title>
+    <main id="site-main">
+        <div class="container">
+            <div class="form-title text-center">
+                <h2 class="text-dark">New User</h2>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <%- include('./include/_header') %>
-
-        <main id="site-main">
-            <div class="container">
-                <div class="form-title text-center">
-                    <h2 class="text-dark">New User</h2>
-
-                    <span class="text-light">Use the below form to create new account</span>
-                </div>
-                <form action="/" method="post" id="add_user">
-                    <div class="new_user">
-                        <div class="form-group">
-                            <label for="name" class="text-light">
-                                Name: <input type="text" id="name" name="name" value="" placeholder="john doe">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="text-light">
-                                Email: <input type="email" id="email" name="email" value="" placeholder="john@doe.com">
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="gender" class="text-light">
-                                Gender: 
-                                <div class="radio inline">
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <label for="male">
-                                        Male
-                                    </label>
-                        </div>
-                        <div class="radio inline">
-                            <input type="radio" id="female" name="gender" value="female">
-                            <label for="female">
-                                        Female
-                                    </label>
-                        </div>
+                <span class="text-light">Use the below form to create new account</span>
+            </div>
+            <form action="/api/create" method="post" id="add_user">
+                <div class="new_user">
+                    <div class="form-group">
+                        <label for="name" class="text-light">
+                            Name: <input type="text" id="name" name="name" value="" placeholder="john doe">
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="text-light">
+                            Email: <input type="email" id="email" name="email" value="" placeholder="john@doe.com">
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="text-light">
+                            Gender:
+                            <div class="radio inline">
+                                <input type="radio" id="male" name="gender" value="male">
+                                <label for="male">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="radio inline">
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">
+                                    Female
+                                </label>
+                            </div>
                         </label>
                     </div>
                     <div class="form-group">
                         <label for="status" class="text-light">
-                                Status: 
-                                <div class="radio inline">
-                                    <input type="radio" id="active" name="status" value="active">
-                                    <label for="active">Active</label>
+                            Status:
+                            <div class="radio inline">
+                                <input type="radio" id="active" name="status" value="active">
+                                <label for="active">Active</label>
+                            </div>
+                            <div class="radio inline">
+                                <input type="radio" id="inactive" name="status" value="inactive">
+                                <label for="inactive">Inactive</label>
+                            </div>
+                        </label>
                     </div>
-                    <div class="radio inline">
-                        <input type="radio" id="inactive" name="status" value="inactive">
-                        <label for="inactive">Inactive</label>
+                    <div class="form-group">
+                        <button type="submit" class="btn text-dark add">Add New User</button>
                     </div>
-                    </label>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn text-dark add">Add New User</button>
-            </div>
-            </div>
+                </div>
             </form>
-            </div>
-        </main>
-</body>
+        </div>
+    </main>
+    <%- include('./include/_footer') %>
+        </body>
 
-</html>
+        </html>

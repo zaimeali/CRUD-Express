@@ -1,67 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('./include/_header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD APP</title>
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-user" class="border-shadow">
+                    <span class="text-gradient">
+                        New User
+                        <i class="fa fa-user"></i>
+                    </span>
+                </a>
+            </div>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <%- include('./include/_header') %>
-
-        <main id="site-main">
-            <div class="container">
-                <div class="box-nav d-flex justify-between">
-                    <a href="/add-user" class="border-shadow">
-                        <span class="text-gradient">
-                            New User
-                            <i class="fa fa-user"></i>
-                        </span>
-                    </a>
-                </div>
-
-                <form action="/" method="post">
-                    <table class="table">
-                        <thead class="thead-dark">
+            <form action="/" method="post">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach((user, index)=> { %>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Gender</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>test</td>
-                                <td>test@user.com</td>
-                                <td>Male</td>
-                                <td>Active</td>
                                 <td>
-                                    <a href='/edit-user/1' class="btn border-shadow update">
+                                    <%= index + 1 %>
+                                </td>
+                                <td>
+                                    <%= user.name %>
+                                </td>
+                                <td>
+                                    <%= user.email %>
+                                </td>
+                                <td>
+                                    <%= user.gender %>
+                                </td>
+                                <td>
+                                    <%= user.status %>
+                                </td>
+                                <td>
+                                    <a href='/edit-user/<%= user._id %>' class="btn border-shadow update">
                                         <span class="text-gradient">
                                             <i class="fa fa-pencil"></i>
                                         </span>
                                     </a>
-                                    <a href="#" class="btn border-shadow delete">
-                                        <span class="text-gradient">
-                                            <i class="fa fa-trash"></i>
+                                    <a data-id="<%= user._id %>" class="btn border-shadow delete">
+                                        <span data-id="<%= user._id %>" class="text-gradient">
+                                            <i data-id="<%= user._id %>" class="fa fa-trash"></i>
                                         </span>
                                     </a>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                </form>
-            </div>
-        </main>
-</body>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+    <%- include('./include/_footer') %>
+        </body>
 
-</html>
+        </html>
